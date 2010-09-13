@@ -1,16 +1,21 @@
 #!/usr/bin/env python
 import os
 from xml.dom import minidom
+import sys 
 
 def main():
+    flash_file = sys.argv[1]
+    
     xml_file = os.path.abspath(__file__)
     xml_file = os.path.dirname(xml_file)
-    xml_file = os.path.join(xml_file, "flash.xml")
+    xml_file = os.path.join(xml_file, flash_file)
     
     try:
         xmldoc = minidom.parse(xml_file)
     except Exception, inst:
-        print "No, no se pudo abrir el archivo %s: %s" % (xml_file, inst)
+        print "No, no :("
+        print "-Please, be sure that this file exists: %s" % xml_file
+        print inst
         return
     
     nodes = xmldoc.getElementsByTagName('SITE')
