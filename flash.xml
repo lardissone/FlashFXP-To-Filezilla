@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--05/09/2010 02:38:12 p.m.-->
+<SITES VERSION="1.2">
+  <SITE NAME="Example">
+    <GROUP>\Something\</GROUP>
+    <PROTOCOL>FTP</PROTOCOL>
+    <ADDRESS>example.org</ADDRESS>
+    <PORT>21</PORT>
+    <USERNAME>example</USERNAME>
+    <PASSWORD>secure_password</PASSWORD>
+    <REMOTEPATH>/public_html/example/</REMOTEPATH>
+    <PASSIVE>DEFAULT</PASSIVE>
+    <SSL>NONE</SSL>
+  </SITE>
+  <SITE NAME="Example 2">
+    <GROUP>\Something\</GROUP>
+    <PROTOCOL>FTP</PROTOCOL>
+    <ADDRESS>example2.com</ADDRESS>
+    <PORT>21</PORT>
+    <USERNAME>example2</USERNAME>
+    <PASSWORD>another_secure_password</PASSWORD>
+    <PASSIVE>DEFAULT</PASSIVE>
+    <SSL>NONE</SSL>
+  </SITE>
+</SITES>
