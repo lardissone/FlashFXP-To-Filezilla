@@ -33,6 +33,10 @@ def main():
             if node.getElementsByTagName('USERNAME') else ''
         passw = node.getElementsByTagName('PASSWORD')[0].firstChild.data \
             if node.getElementsByTagName('PASSWORD') else ''
+        localpath = node.getElementsByTagName('LOCALPATH')[0].firstChild.data \
+            if node.getElementsByTagName('LOCALPATH') else ''
+        remotepath = node.getElementsByTagName('REMOTEPATH')[0].firstChild.data \
+            if node.getElementsByTagName('REMOTEPATH') else ''
 
         xml_str += '<Server>'
         xml_str += '<Host>' + str(server) + '</Host>'
@@ -49,8 +53,8 @@ def main():
         xml_str += '<BypassProxy>0</BypassProxy>'
         xml_str += '<Name>' + str(name) + '</Name>'
         xml_str += '<Comments>Imported from FlashFXP</Comments>'
-        xml_str += '<LocalDir></LocalDir>'
-        xml_str += '<RemoteDir></RemoteDir>'
+        xml_str += '<LocalDir>' + str(localpath) + '</LocalDir>'
+        xml_str += '<RemoteDir>' + str(remotepath) + '</RemoteDir>'
         xml_str += '<SyncBrowsing>0</SyncBrowsing>'
         xml_str += '</Server>'
 
