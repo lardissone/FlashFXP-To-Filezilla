@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<!--05/09/2010 02:38:12 p.m.-->
+<!--1-8-2012 14:17:43-->
 <SITES VERSION="1.2">
   <SITE NAME="Example">
     <GROUP>\Something\</GROUP>
@@ -12,11 +12,10 @@
     <PASSIVE>DEFAULT</PASSIVE>
     <SSL>NONE</SSL>
   </SITE>
-  <SITE NAME="Example 2">
-    <GROUP>\Something\</GROUP>
+  <SITE NAME="Example 2 (no port)">
+    <GROUP>\Something\Nested\</GROUP>
     <PROTOCOL>FTP</PROTOCOL>
     <ADDRESS>example2.com</ADDRESS>
-    <PORT>21</PORT>
     <USERNAME>example2</USERNAME>
     <PASSWORD>another_secure_password</PASSWORD>
     <PASSIVE>DEFAULT</PASSIVE>
