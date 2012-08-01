@@ -22,17 +22,22 @@ def main():
     nodes = xmldoc.getElementsByTagName('SITE')
 
     xml_str = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><FileZilla3><Servers>'
+    xml_str += '<Folder expanded="1">Imported from FlashFXP&#x0A;            '
 
     for node in nodes:
         name = node.attributes['NAME'].value
         server = node.getElementsByTagName('ADDRESS')[0].firstChild.data \
             if node.getElementsByTagName('ADDRESS') else ''
         port = node.getElementsByTagName('PORT')[0].firstChild.data \
-            if node.getElementsByTagName('PORT') else ''
+            if node.getElementsByTagName('PORT') else 21
         user = node.getElementsByTagName('USERNAME')[0].firstChild.data \
             if node.getElementsByTagName('USERNAME') else ''
         passw = node.getElementsByTagName('PASSWORD')[0].firstChild.data \
             if node.getElementsByTagName('PASSWORD') else ''
+        localpath = node.getElementsByTagName('LOCALPATH')[0].firstChild.data \
+            if node.getElementsByTagName('LOCALPATH') else ''
+        remotepath = node.getElementsByTagName('REMOTEPATH')[0].firstChild.data \
+            if node.getElementsByTagName('REMOTEPATH') else ''
 
         xml_str += '<Server>'
         xml_str += '<Host>' + str(server) + '</Host>'
@@ -48,12 +53,13 @@ def main():
         xml_str += '<EncodingType>Auto</EncodingType>'
         xml_str += '<BypassProxy>0</BypassProxy>'
         xml_str += '<Name>' + str(name) + '</Name>'
-        xml_str += '<Comments></Comments>'
-        xml_str += '<LocalDir></LocalDir>'
-        xml_str += '<RemoteDir></RemoteDir>'
-        xml_str += '<SyncBrowsing>0</SyncBrowsing>'
+        xml_str += '<Comments>Imported from FlashFXP</Comments>'
+        xml_str += '<LocalDir>' + str(localpath) + '</LocalDir>'
+        xml_str += '<RemoteDir>' + str(remotepath) + '</RemoteDir>'
+        xml_str += '<SyncBrowsing>0</SyncBrowsing>'+ str(name) +'&#x0A;                '
         xml_str += '</Server>'
 
+    xml_str += '</Folder>'
     xml_str += '</Servers></FileZilla3>'
 
     xml_output_file = open('filezilla.xml', 'w')
