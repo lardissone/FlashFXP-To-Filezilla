@@ -28,7 +28,6 @@ def main():
         server = node.getElementsByTagName('ADDRESS')[0].firstChild.data \
             if node.getElementsByTagName('ADDRESS') else ''
         port = node.getElementsByTagName('PORT')[0].firstChild.data \
-            if node.getElementsByTagName('PORT') else ''
             if node.getElementsByTagName('PORT') else 21
         user = node.getElementsByTagName('USERNAME')[0].firstChild.data \
             if node.getElementsByTagName('USERNAME') else ''
