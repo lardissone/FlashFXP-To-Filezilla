@@ -55,7 +55,7 @@ def main():
         xml_str += '<Comments>Imported from FlashFXP</Comments>'
         xml_str += '<LocalDir>' + str(localpath) + '</LocalDir>'
         xml_str += '<RemoteDir>' + str(remotepath) + '</RemoteDir>'
-        xml_str += '<SyncBrowsing>0</SyncBrowsing>'
+        xml_str += '<SyncBrowsing>0</SyncBrowsing>'+ str(name) +'&#x0A;                '
         xml_str += '</Server>'
 
     xml_str += '</Servers></FileZilla3>'
