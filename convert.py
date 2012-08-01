@@ -48,7 +48,7 @@ def main():
         xml_str += '<EncodingType>Auto</EncodingType>'
         xml_str += '<BypassProxy>0</BypassProxy>'
         xml_str += '<Name>' + str(name) + '</Name>'
-        xml_str += '<Comments></Comments>'
+        xml_str += '<Comments>Imported from FlashFXP</Comments>'
         xml_str += '<LocalDir></LocalDir>'
         xml_str += '<RemoteDir></RemoteDir>'
         xml_str += '<SyncBrowsing>0</SyncBrowsing>'
