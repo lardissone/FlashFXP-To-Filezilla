@@ -22,6 +22,7 @@ def main():
     nodes = xmldoc.getElementsByTagName('SITE')
 
     xml_str = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><FileZilla3><Servers>'
+    xml_str += '<Folder expanded="1">Imported from FlashFXP&#x0A;            '
 
     for node in nodes:
         name = node.attributes['NAME'].value
@@ -58,6 +59,7 @@ def main():
         xml_str += '<SyncBrowsing>0</SyncBrowsing>'+ str(name) +'&#x0A;                '
         xml_str += '</Server>'
 
+    xml_str += '</Folder>'
     xml_str += '</Servers></FileZilla3>'
 
     xml_output_file = open('filezilla.xml', 'w')
