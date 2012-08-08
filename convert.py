@@ -26,6 +26,15 @@ def main():
 
     for node in nodes:
         name = node.attributes['NAME'].value
+
+        group = node.getElementsByTagName('GROUP')[0].firstChild.data[1:-1] \
+            if node.getElementsByTagName('GROUP') else ''
+
+        folders = group.split('\\');
+
+        for folder in folders:
+            xml_str += '<Folder>'+folder+'&#x0A;            \n'
+
         server = node.getElementsByTagName('ADDRESS')[0].firstChild.data \
             if node.getElementsByTagName('ADDRESS') else ''
         port = node.getElementsByTagName('PORT')[0].firstChild.data \
@@ -39,7 +48,7 @@ def main():
         remotepath = node.getElementsByTagName('REMOTEPATH')[0].firstChild.data \
             if node.getElementsByTagName('REMOTEPATH') else ''
 
-        xml_str += '<Server>'
+        xml_str += '<Server>\n'
         xml_str += '<Host>' + str(server) + '</Host>'
         xml_str += '<Port>' + str(port) + '</Port>'
         xml_str += '<Protocol>0</Protocol>'
@@ -57,12 +66,15 @@ def main():
         xml_str += '<LocalDir>' + str(localpath) + '</LocalDir>'
         xml_str += '<RemoteDir>' + str(remotepath) + '</RemoteDir>'
         xml_str += '<SyncBrowsing>0</SyncBrowsing>'+ str(name) +'&#x0A;                '
-        xml_str += '</Server>'
+        xml_str += '</Server>\n'
+
+        for folder in folders:
+            xml_str += '</Folder>\n'
 
     xml_str += '</Folder>'
     xml_str += '</Servers></FileZilla3>'
 
-    xml_output_file = open('filezilla.xml', 'w')
+    xml_output_file = open('FileZilla.xml', 'w')
     xml_output_file.write(xml_str)
     xml_output_file.close()
 
