@@ -1,7 +1,10 @@
 #!/usr/bin/env python
+# -*- coding: UTF-8 -*-
 import os
 from xml.dom import minidom
 import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 import base64
 
 
